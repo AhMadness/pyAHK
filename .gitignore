@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build and generated output
+build/
+dist/
+*.exe
+*.ahk
+*.pyahk.json
+
+# Local backups and scratch files
+backups/
+backup*.txt
+final code backup.txt
+main - backup.py
