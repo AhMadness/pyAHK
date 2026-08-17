@@ -1,38 +1,69 @@
-# 🔥 pyAHK - AutoHotkey Mapping Tool
+# pyAHK
 
-Effortlessly map keys, define sequences, and compile them into AutoHotkey scripts or executables.
+A Windows desktop automation builder that turns visual hotkey mappings and
+recorded input into AutoHotkey v2 scripts.
 
----
+![pyAHK main interface](assets/pyahk-main.png)
 
-### ⚡ **Features:**
-- Define keyboard and mouse action sequences
-- Assign hotkeys to trigger sequences
-- Toggle, Exit, and Info hotkeys
-- Compile to `.ahk` or `.exe`
-- Simple, intuitive GUI
+## Highlights
 
----
+- Build keyboard, text, mouse, delay, and scroll sequences without writing AHK.
+- Assign, validate, enable, disable, name, and repeat hotkey mappings.
+- Record keyboard and mouse input, including window-relative click positions.
+- Save reusable projects with recovery autosave.
+- Preview and run generated AutoHotkey v2 scripts.
+- Export `.ahk` files or compile Windows executables with Ahk2Exe.
+- Detect duplicate hotkeys and control-key conflicts before generation.
 
-# Main Interface
+## Technology
 
-![image](https://github.com/user-attachments/assets/69534205-3d68-471a-ba9d-aff301055b9b)
+- Python
+- PyQt6
+- AutoHotkey v2
+- pynput
+- PyInstaller
 
-## Adding a hotkey
+## Requirements
 
-![image](https://github.com/user-attachments/assets/27897ad7-af5f-4a2a-bf8f-0f7f12d75b0f)
+- Windows 10 or Windows 11
+- Python 3.10+
+- AutoHotkey v2 for running generated scripts
+- Ahk2Exe for optional executable compilation
 
-## Script toggle, exit or info (shows key mappings) optional keys
+## Run From Source
 
-![image](https://github.com/user-attachments/assets/1fd88428-1c85-4434-8a67-dc5e6293649d)
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python main.py
+```
 
-## Key mapping and AutoHotKey script displays after adding mapping
+## Tests
 
-![image](https://github.com/user-attachments/assets/87eb4ab7-df11-42d6-b463-fbead4aa12f7)
+```powershell
+$env:QT_QPA_PLATFORM = "offscreen"
+python -m unittest discover -s tests -v
+```
 
-## Save script directly as an ahk file or build it as an exe
+The test suite covers hotkey parsing, conflict detection, project persistence,
+script generation, recording conversion, recovery, repeat behavior, and build
+state handling.
 
+## Build
 
+```powershell
+python -m PyInstaller --clean pyAHK.spec
+```
 
+The packaged executable is written to `dist/` and is intentionally excluded
+from the repository.
 
+## Repository Scope
 
+Generated executables, local projects, backups, IDE settings, and build output
+are intentionally excluded from version control.
 
+## License
+
+Copyright (c) 2026 Ahmad Jomaa. All rights reserved. See [LICENSE](LICENSE).
